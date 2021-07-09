@@ -5,12 +5,7 @@ import { AppService } from './app.service';
 import { TasksModule } from './tasks/tasks.module';
 
 @Module({
-  imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://omnistack:omnistack@omnistack10.o7zmp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-    ),
-    TasksModule,
-  ],
+  imports: [MongooseModule.forRoot('your-db-uri'), TasksModule],
   controllers: [AppController],
   providers: [AppService],
 })
