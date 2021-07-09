@@ -1,10 +1,16 @@
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TasksModule } from './tasks/tasks.module';
 
 @Module({
-  imports: [TasksModule],
+  imports: [
+    MongooseModule.forRoot(
+      'mongodb+srv://omnistack:omnistack@omnistack10.o7zmp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+    ),
+    TasksModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
