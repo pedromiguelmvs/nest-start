@@ -5,7 +5,10 @@ import { AppService } from './app.service';
 import { TasksModule } from './tasks/tasks.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('your-db-uri'), TasksModule],
+  imports: [
+    MongooseModule.forRoot(process.env.DB_URI),
+    TasksModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
